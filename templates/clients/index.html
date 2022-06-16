@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Clients data</title>
+{% endblock %}
+
+{% block body %}
+<div class='container mt-5 full-width'>
+    <p class='h1'>Hello {{user}}</p>
+    <br>
+    <p class='h1'>This page is to test api by fetching it</p>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="col">
+                <p class='h2'>Get method</p>
+                <div class='mb-3'>
+                    <div class="form-floating mb-3">
+                        <input type="number" name="inp1" id="inp1" class="form-control" placeholder="Enter client id" required>
+                        <label for="inp1">Client id</label> 
+                        <button class="btn btn-primary" onclick="send_request()">Send request</button> 
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <p class='h2'>Post method</p>
+                <div class='mb-3'>
+                    <div class="form-floating mb-3">
+                        <input type="text" name="inp2" id="inp2" class="form-control" placeholder="Enter client bs. name" required>
+                        <label for="inp2">Business name</label>
+                        <button class="btn btn-primary" onclick="register()">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="col">
+                <p class='h2'>Put method</p>
+                <p class="p">Use put method to edit ORM object</p>
+                <div class="form-group">
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" name="ide" id="ide" placeholder="Enter client id to edit" required>
+                        <label for="ide">ID</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" name="bse" id="bse" placeholder="Enter new businessname" required>
+                        <label for="bse">Businessname</label>
+                    </div>
+                    <button class="btn btn-success" onclick="edit()">PUT</button>
+                </div>
+            </div>
+            <div class="col">
+                <p class="h2">Delete method</p>
+                <div class="form-floating mb-3">
+                    <input type="id" class="form-control" name="idd" id="idd" placeholder="Enter client id to delete" required>
+                    <label for="idd">ID</label>
+                    <button class="btn btn-danger" onclick="deleteO()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p class='h2'>Console log</p>
+        <textarea name="console" id="console" cols="150" rows="10" disabled="disabled"
+        style="background-color:black; color:darkgreen;" >Activity:</textarea>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript" src="{{url_for('static', filename='scripts/clients.js')}}"></script>
+{% endblock %}

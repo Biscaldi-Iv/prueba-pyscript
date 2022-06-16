@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Register</title>
+{% endblock %}
+
+{% block body %}
+
+<main class="form-signup">
+  <form method="post">
+    <h1 class="h3 mb-3 fw-normal">{{ _('Sign Up') }}</h1>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Guido" required value="{{lastdata.fullname}}">
+      <label for="name">{{ _('Fullname') }}</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="text" class="form-control" id="username" name="username" placeholder="name123" required value="{{lastdata.username}}">
+      <label for="username">{{ _('Username') }}</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+      <label for="password">{{ _('Password') }}</label>
+    </div>
+
+    <div class="form-floating">
+      <input type="password" class="form-control" id="passconfirm" name="passconfirm" placeholder="Password">
+      <label for="passconfirm">{{ _('Confirm your password') }}</label>
+    </div>
+
+
+    <p style="color:red">{{ error }}</p>
+    <button id="btnCancel" class="btn btn-danger btn-md center-block" type="submit">{{ _('Cancel') }}</button>
+    <button id="btnSumbit" class="btn btn-primary btn-md center-block" type="submit">{{ _('Confirm') }}</button>
+    
+    <div class="clearfix"></div>
+    
+    <a href='{{url_for("PyTools.SignIn")}}'>{{ _('I have an account') }}</a>
+
+    <footer class="mt-5 mb-3 text-muted">&copy; Testing python tools</footer>
+
+  </form>
+</main>
+
+
+{% endblock %}
